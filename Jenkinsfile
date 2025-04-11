@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "swpanahd/k8s-deploy-pipeline"
+        IMAGE_NAME = "amulyapriya/kubeapp"
         TAG = "v1"
         KUBECONFIG = "/var/lib/jenkins/kubeconfig"  // ✅ Updated path
     }
@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/dimpleswapna/k8s-deploy-pipeline.git'
+                    url: ''
             }
         }
 
