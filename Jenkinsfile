@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: ''
+                    url: 'https://github.com/gpriyagit/k8s-deploy-pipeline.git'
             }
         }
 
@@ -25,7 +25,7 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-                withDockerRegistry([ credentialsId: 'dockerhub-creds', url: '' ]) {
+                withDockerRegistry([ credentialsId: 'docker-hub', url: '' ]) {
                     sh "docker push $IMAGE_NAME:$TAG"
                 }
             }
